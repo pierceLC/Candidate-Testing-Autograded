@@ -41,21 +41,34 @@ function askQuestion() {
   for (let i = 0; i < questions.length; i++) {
     let response = input.question(questions[i]);
     candidateAnswers.push(response);
-}
+  }
 }
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  let correctCount = 0;
   for (let i = 0; i < questions.length; i++) {
+    console.log("------------------------");
     console.log(`Question: ${questions[i]}`);
     console.log(`Candidate's Response: ${candidateAnswers[i]}`);
     console.log(`Correct Answer: ${correctAnswers[i]}`);
+
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      correctCount++;
+    }
     console.log("------------------------");
 }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-candidateScore 
+  //let grade;  //TODO 3.2 use this variable to calculate the candidates score
+  let grade = (correctCount / questions.length) * 100;
+  console.log(`Candidate's Score: ${grade}%`);
+  
+  if (grade >= 4) {
+    console.log(`Congratulations, ${candidateName}! You have passed the quiz.`);
+  } else {
+    console.log(`Sorry, ${candidateName}. You have failed the quiz.`);
+  }
 
   return grade;
 }
