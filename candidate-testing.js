@@ -64,7 +64,7 @@ function gradeQuiz(candidateAnswers) {
   let grade = (correctCount / questions.length) * 100;
   console.log(`Candidate's Score: ${grade}%`);
   
-  if (grade >= 4) {
+  if (grade >= 80) {
     console.log(`Congratulations, ${candidateName}! You have passed the quiz.`);
   } else {
     console.log(`Sorry, ${candidateName}. You have failed the quiz.`);
